@@ -1,0 +1,110 @@
+{{- $collection := .Data "collection" -}}
+
+<style>
+	main {flex-direction:column;}
+	.hero {
+		position:relative;
+	}
+
+	.hero h1 {
+		color:white;
+		font-size:5em;
+		line-height:1.2em;
+		text-align:center;
+		text-stroke: 1px black;
+		text-shadow: #000 10px 0 20px;
+	}
+
+	.hero h2 {
+		color:white;
+		font-size:3em;
+		line-height:1.2em;
+		text-align:center;
+		text-stroke: 1px black;
+		text-shadow: #000 10px 0 20px;
+	}
+
+	.page {
+		margin: 48px auto;
+	}
+</style>
+
+<div class="hero aspect-16-9 flex-column">
+	{{- if ne "" $collection -}}
+		<div style="background-color:gray;" class="pos-absolute-four-corners" hx-get="/.unsplash/collections/{{$collection}}/random" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false"></div>
+	{{- end -}}
+
+	<div class="flex-grow margin-vertical-lg pos-relative">
+		<h1 class="margin-bottom-xs">{{.Data "heroText"}}</h1>
+		<h2 class="margin-vertical-xs">{{.Data "heroSubtext"}}</h2>
+	</div>
+
+	<div class="align-center margin-vertical-lg pos-relative">
+		<button hx-on:click="htmx.find('#learn').scrollIntoView({behavior:'smooth', block:'start', inline:'nearest'})" class="text-xl primary">Learn More</button>
+		<button hx-on:click="htmx.find('#join').scrollIntoView({behavior:'smooth', block:'start', inline:'nearest'})" class="text-xl">Join the Waitlist</button>
+	</div>
+
+</div>
+
+<div id="learn" class="page">
+
+	<div class="margin-horizontal-auto" style="max-width:640px">
+
+		<div class="margin-bottom-xl">
+			<h1>Help build an open community for musicians and bands.</h1>
+			<h2>Fediverse, Mastodon, and Beyond</h2>
+			<p>Every post is accessible to the millions on people on the Fediverse -- using servers like Mastodon, Misskey, and others -- where they can boost and share your music to their communities. Fans not on the Fediverse? No problem. They can subscribe to your news feed via email, too.</p>
+			<h2>Gorgeous Album Pages</h2>
+			<p>Go viral with custom designed album pages that showcase your music, with album art, liner notes, and more.</p>
+			<h2>Audio Streaming</h2>
+			<p>Upload audio files and your fans can play songs directly from your album pages. Or, link to your music on popular streaming services like Spotify, Soundcloud, and more.</p>
+			<h2>Tour Dates and Tickets</h2>
+			<p>Promote your event calendar and tour dates now live on the Fediverse, so your fans will always know how to see you in person, and can tell their online community to show up at the box office, too.</p>
+			<h2>And More...</h2>
+			<p>Music discovery? Online sales? Analytics? There&#39;s a lot more in store as the community grows. This is a 100% open source effort, so you could even roll your own, if you want. Your insights make a difference in what we make and how we build, so speak up about what works and what doesn&#39;t, and we&#39;ll make it happen together.</p>
+		</div>
+
+		<div class="margin-bottom-xl">
+			<h1 id="learn">Free Stuff for Early Testers</h1>
+			<p><b>Free Custom Setup</b> - We're setting up our first beta testers for free, so that we can understand all the ins and outs of what you'll need.  We'll get everything running smoothly, then turn it over to you.</p>
+			<p><b>Free Premium Account</b> - While we work out fair pricing for Planetary.fm, you'll get all premium features for free.  In about six months you'll get a good deal on whatever pricing tiers we come up with.</p>
+		</div>
+
+		<div class="margin-bottom-xl">
+			<h2 id="terms">Terms of Service</h2>
+			<ul>
+				<li class="margin-bottom"><b>Post Your Own Work</b> - Do not post content that you do not own the copyright to.  Posting others' work will result an instant ban</li>
+				<li class="margin-bottom"><b>No AI Garbage</b> - This is a place for human music, not for algorithms.</li>
+				<li class="margin-bottom"><b>No Illegal Content</b> - Do not post content that is illegal in either your home jurisdiction, or in the United States of America. Posting illegal content of any kind will result in an instant ban and a report to relevant authorities.</li>
+				<li class="margin-bottom"><b>No Warranty</b> - This is a beta, and we're still working out our kinks. So please understand if we hit a few bumps.</li>
+				<li class="margin-bottom"><b>Brutal Ban-Hammers for Violators</b> - Just be cool and don't do anything that'll get us sued. Insta-perma-bans for rule breakers.
+			</ul>
+			
+		</div>
+
+		<div class="card padding margin-bottom-xl" id="waitlist-widget" hx-target="#waitlist-widget" hx-swap="innerHTML">
+			<h1 id="join">Get Me On That Waitlist</h1>
+			{{.View "join"}}
+		</div>
+
+		<div class="margin-bottom-xl">
+			<h2>Powered by Emissary</h2>
+			<a href="https://emissary.dev" target="_blank">Emissary is the Social Web Toolkit</a> that powers this website and many more.
+			It's easy to <a href="https://emissary.dev/admins" target="_blank">host your own Emissary server</a> to run this, or many other custom apps on it.
+			<br><br>
+			Wanna build your own Emissary app? <a href="https://emissary.dev/creators" target="_blank">It's easy to get started.</a>
+			</p>
+		</div>
+
+	</div>
+
+	<div class="pos-absolute-top-right text-xs">
+		{{- if .UserCan "edit" -}}
+			<button hx-get="/{{.StreamID}}/edit">Edit Page</button>
+		{{- end -}}
+		{{- if .UserCan "waitlist" -}}
+			<button hx-get="/{{.StreamID}}/waitlist">Waitlist</button>
+		{{- end -}}
+	</div>
+
+</div>

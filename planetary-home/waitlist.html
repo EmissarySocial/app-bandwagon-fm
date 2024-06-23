@@ -1,0 +1,26 @@
+{{- $waitlist := (.Children.Where "templateId" "bandwagon-waitlist-item").ByUpdateDate.Slice -}}
+
+<div class="page" hx-get="/{{.StreamID}}/waitlist" hx-trigger="refreshPage from:window" hx-push-url="false">
+
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Band</td>
+				<td>Contact</td>
+				<td>Email</td>
+				<td>Status</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{- range $waitlist -}}
+				<tr role="button" hx-get="/{{.StreamID}}/edit">
+					<td>{{.Label}}
+					<td>{{.Data.contact}}</td>
+					<td>{{.Data.email}}</td>
+					<td>{{.Data.status}}</td>
+				</tr>
+			{{- end -}}
+		</tbody>
+	</table>
+
+</div>
