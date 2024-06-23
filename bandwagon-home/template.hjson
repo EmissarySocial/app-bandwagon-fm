@@ -4,7 +4,7 @@
 	model: Stream
 	containedBy: ["top"]
 	icon: home
-	label: Bandwagon Home Page
+	label: Home Page for Bandwagon.fm
 	description: Custom Home Page for Bandwagon.fm
 	schema: {
 		type: object
