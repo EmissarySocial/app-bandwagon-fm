@@ -4,8 +4,8 @@
 	model: Stream
 	containedBy: ["top", "homepage"]
 	icon: home
-	label: Planetary Beta Signup
-	description: Beta Signup for Planetary
+	label: Bandwagon Waitlist Signup
+	description: Waitlist Signup for Bandwagon
 	schema: {
 		type: object
 		properties: {

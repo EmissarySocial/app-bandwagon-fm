@@ -4,8 +4,8 @@
 	model: Stream
 	containedBy: ["top"]
 	icon: home
-	label: Planetary Home Page
-	description: Custom Home Page for Planetary.fm
+	label: Bandwagon Home Page
+	description: Custom Home Page for Bandwagon.fm
 	schema: {
 		type: object
 		properties: {
