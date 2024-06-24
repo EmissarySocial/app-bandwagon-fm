@@ -27,9 +27,26 @@
 	.page {
 		margin: 48px auto;
 	}
+
+	@media screen and (max-width: 568px) {
+		.hero h1 {
+			font-size:3em;
+			padding:0px 1em;
+			line-height:1.1em;
+		}
+
+		.hero h2 {
+			font-size:2em;
+			padding:0px 1em;
+			line-height:1.1em;
+		}
+
+
+	}
+
 </style>
 
-<div class="hero aspect-16-9 flex-column">
+<div class="hero md:aspect-16-9 flex-column">
 	{{- if ne "" $collection -}}
 		<div style="background-color:gray;" class="pos-absolute-four-corners" hx-get="/.unsplash/collections/{{$collection}}/random" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false"></div>
 	{{- end -}}
@@ -51,7 +68,7 @@
 	<div class="margin-horizontal-auto" style="max-width:640px">
 
 		<div class="margin-bottom-xl">
-			<h1>Help build an open community for musicians and bands.</h1>
+			<h1 class="align-center">Help build an open community for musicians and bands.</h1>
 			<h2>Fediverse, Mastodon, and Beyond</h2>
 			<p>Every post is accessible to the millions on people on the Fediverse -- using servers like Mastodon, Misskey, and others -- where they can boost and share your music to their communities. Fans not on the Fediverse? No problem. They can subscribe to your news feed via email, too.</p>
 			<h2>Gorgeous Album Pages</h2>

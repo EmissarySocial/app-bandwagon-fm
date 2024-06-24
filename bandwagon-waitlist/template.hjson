@@ -19,7 +19,7 @@
 					ai-terms: {type: "boolean", required:true}
 					legal-terms: {type: "boolean", required:true}
 					copyright-terms: {type: "boolean", required:true}
-					status: {type:"string", enum:["new", "in progress", "complete"]}
+					status: {type:"string"}
 					notes: {type:"string"}
 				}
 			}
@@ -36,7 +36,7 @@
 						type: layout-vertical
 						children: [
 							{type:"text", label:"Band Name (required)", path:"label", description:"Your band or stage name"}
-							{type:"text", label:"Primary Contact (required)", path:"data.contact", description:"The name of the person we'll contact most"}
+							{type:"text", label:"Primary Contact Name (required)", path:"data.contact", description:"The name of the person we'll contact most"}
 							{type:"text", label:"Email Address (required)", path:"data.email", description:"This is how we'll contact you when we're ready to get you set up", options:{autocomplete:"off"}}
 							{type:"text", label:"Fediverse Handle (if you have one)", path:"data.fediverse", description: "e.g. @myband@mastodon.social"}
 							{type:"checkbox", label:"I will not violate the copyright laws of the USA or my home country", path:"data.copyright-terms"}
@@ -73,9 +73,10 @@
 									label: Details
 									children: [
 										{type:"text", label:"Band Name", path:"label"}
-										{type:"text", label:"Primary Contact", path:"data.contact"}
+										{type:"text", label:"Primary Contact Name", path:"data.contact"}
 										{type:"text", label:"Email Address", path:"data.email", options:{autocomplete:"off"}}
 										{type:"text", label:"Fediverse Handle", path:"data.fediverse"}
+										{type:"text", label:"Status", path:"data.status"}
 									]
 								},
 								{
