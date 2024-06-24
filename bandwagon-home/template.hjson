@@ -71,8 +71,8 @@
 		join: {
 			roles: ["anonymous"]
 			steps: [
-				{do:"set-args", postTo:"/{{.Token}}/join?templateId=bandwagon-waitlist-item"}
-				{do:"add-stream", style:"inline", roles:["bandwagon-waitlist-item"], location:"child"}
+				{do:"set-args", postTo:"/{{.Token}}/join?templateId=bandwagon-waitlist"}
+				{do:"add-stream", style:"inline", roles:["bandwagon-waitlist"], location:"child"}
 				{do:"set-header", method:"post", name:"HX-Reswap", value:"innerHTML"}
 				{do:"set-header", method:"post", name:"HX-Retarget", value:"#waitlist-widget"}
 				{do:"view-html", file:"confirm", method:"post"}

@@ -1,8 +1,8 @@
 {
-	templateId: bandwagon-waitlist-item
-	templateRole: bandwagon-waitlist-item
+	templateId: bandwagon-waitlist
+	templateRole: bandwagon-waitlist
 	model: Stream
-	containedBy: ["top", "homepage"]
+	containedBy: ["homepage"]
 	icon: home
 	label: Bandwagon Waitlist Signup
 	description: Waitlist Signup for Bandwagon
