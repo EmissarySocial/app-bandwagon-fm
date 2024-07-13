@@ -11,7 +11,6 @@
 		font-size:5em;
 		line-height:1.2em;
 		text-align:center;
-		text-stroke: 1px black;
 		text-shadow: #000 10px 0 20px;
 	}
 
@@ -20,7 +19,6 @@
 		font-size:3em;
 		line-height:1.2em;
 		text-align:center;
-		text-stroke: 1px black;
 		text-shadow: #000 10px 0 20px;
 	}
 
@@ -57,8 +55,8 @@
 	</div>
 
 	<div class="align-center margin-vertical-lg pos-relative">
-		<button hx-on:click="htmx.find('#learn').scrollIntoView({behavior:'smooth', block:'start', inline:'nearest'})" class="text-xl primary">Learn More</button>
-		<button hx-on:click="htmx.find('#join').scrollIntoView({behavior:'smooth', block:'start', inline:'nearest'})" class="text-xl">Join the Waitlist</button>
+		<button hx-on:click="smoothSelect('#learn')" class="text-xl primary">Learn More</button>
+		<button hx-on:click="smoothSelect('#join')" class="text-xl">Join the Waitlist</button>
 	</div>
 
 </div>
@@ -125,3 +123,13 @@
 	</div>
 
 </div>
+
+<script>
+	function smoothSelect(id) {
+		var node = htmx.find(id)
+		node.tabIndex = "-1"
+		node.scrollIntoView({behavior:'smooth', block:'start', inline:'nearest'})
+		node.focus()
+		console.log(node)
+	}
+</script>
