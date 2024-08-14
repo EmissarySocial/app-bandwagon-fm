@@ -91,5 +91,11 @@
 				{do: "view-html"}
 			]
 		}
+		waitlist-list: {
+			roles: ["owner"]
+			steps: [
+				{do: "view-html"}
+			]
+		}
 	}
 }
