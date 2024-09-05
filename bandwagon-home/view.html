@@ -55,8 +55,8 @@
 	</div>
 
 	<div class="align-center margin-vertical-lg pos-relative">
-		<button hx-on:click="smoothSelect('#learn')" class="text-xl primary">Learn More</button>
-		<button hx-on:click="smoothSelect('#join')" class="text-xl">Join the Waitlist</button>
+		<button hx-on:click="smoothSelect('#learn')" class="text-xl">Learn More</button>
+		<a href="/register" class="button primary text-xl" tabIndex="0">Start for Free &rarr;</a>
 	</div>
 
 </div>
@@ -66,7 +66,7 @@
 	<div class="margin-horizontal-auto" style="max-width:640px">
 
 		<div class="margin-bottom-xl">
-			<h1 class="align-center">Help build an open community for musicians and bands.</h1>
+			<h1 class="align-center">Join an open community for musicians and bands.</h1>
 			<h2>Fediverse, Mastodon, and Beyond</h2>
 			<p>Every post is accessible to the millions on people on the Fediverse -- using servers like Mastodon, Misskey, and others -- where they can boost and share your music to their communities. Fans not on the Fediverse? No problem. They can subscribe to your news feed via email, too.</p>
 			<h2>Gorgeous Album Pages</h2>
@@ -77,29 +77,10 @@
 			<p>Promote your event calendar and tour dates now live on the Fediverse, so your fans will always know how to see you in person, and can tell their online community to show up at the box office, too.</p>
 			<h2>And More...</h2>
 			<p>Music discovery? Online sales? Analytics? There&#39;s a lot more in store as the community grows. This is a 100% open source effort, so you could even roll your own, if you want. Your insights make a difference in what we make and how we build, so speak up about what works and what doesn&#39;t, and we&#39;ll make it happen together.</p>
-		</div>
-
-		<div class="margin-bottom-xl">
-			<h1 id="learn">Free Stuff for Early Testers</h1>
-			<p><b>Free Custom Setup</b> - We're setting up our first beta testers for free, so that we can understand all the ins and outs of what you'll need.  We'll get everything running smoothly, then turn it over to you.</p>
-			<p><b>Free Premium Account</b> - While we work out fair pricing for Bandwagon.fm, you'll get all premium features for free.  In about six months you'll get a good deal on whatever pricing tiers we come up with.</p>
-		</div>
-
-		<div class="margin-bottom-xl">
-			<h2 id="terms">Terms of Service</h2>
-			<ul>
-				<li class="margin-bottom"><b>Post Your Own Work</b> - Do not post content that you do not own the copyright to.  Posting others' work will result an instant ban</li>
-				<li class="margin-bottom"><b>No AI Garbage</b> - This is a place for human music, not for algorithms.</li>
-				<li class="margin-bottom"><b>No Illegal Content</b> - Do not post content that is illegal in either your home jurisdiction, or in the United States of America. Posting illegal content of any kind will result in an instant ban and a report to relevant authorities.</li>
-				<li class="margin-bottom"><b>No Warranty</b> - This is a beta, and we're still working out our kinks. So please understand if we hit a few bumps.</li>
-				<li class="margin-bottom"><b>Brutal Ban-Hammers for Violators</b> - Just be cool and don't do anything that'll get us sued. Insta-perma-bans for rule breakers.
-			</ul>
-			
-		</div>
-
-		<div class="card padding margin-bottom-xl" id="waitlist-widget" hx-target="#waitlist-widget" hx-swap="innerHTML">
-			<h1 id="join">Get Me On That Waitlist</h1>
-			{{.View "join"}}
+			<p>What do you say?  Get ready to <b>jump on the bandwagon.</b></p>
+			<div class="card margin-vertical-xl padding-lg flex-center" script="install blockselect()">
+				<a href="/register" class="button primary">Join Bandwagon Now &rarr;</a>
+			</div>
 		</div>
 
 		<div class="margin-bottom-xl">
