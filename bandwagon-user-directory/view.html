@@ -18,7 +18,13 @@
 				{{- end -}}
 				<div class="text-center margin-top">
 					<div class="bold">{{$user.DisplayName}}</div>
-					<div class="text-gray text-sm" style="height:4.5em; overflow-y:hidden; text-overflow:ellipsis;">{{$user.StatusMessage}}</div>
+					<div class="text-gray text-sm" style="height:4.5em; overflow-y:hidden; text-overflow:ellipsis;">
+						{{if eq "" $user.StatusMessage -}}
+							@{{$user.Username}}
+						{{- else -}}
+							{{$user.StatusMessage}}
+						{{- end -}}
+					</div>
 				</div>
 			</div>
 		{{- end -}}
