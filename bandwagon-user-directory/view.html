@@ -1,5 +1,5 @@
 {{- $users := .Users.Indexable.Slice -}}
-{{- $users := $users.Shuffle.FirstN 20 -}}
+{{- $users := $users.Shuffle -}}
 
 <div class="page" hx-get="/{{.StreamID}}" hx-trigger="refreshPage from:window" hx-target="this" hx-swap="outerHTML">
 
@@ -9,7 +9,7 @@
 
 	<div class="columns-4">
 		{{- range $index, $user := $users -}}
-			<div class="padding align-center turboclick" role="link" hx-get="/@{{$user.UserID.Hex}}">
+			<div class="padding align-center turboclick" role="link" hx-get="/@{{$user.Username}}">
 
 				{{- if eq "" $user.IconURL -}}
 					<div class="circle-128 margin-horizontal-auto"></div>
