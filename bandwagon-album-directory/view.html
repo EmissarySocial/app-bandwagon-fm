@@ -1,0 +1,28 @@
+{{- $streams := .Streams.Where "templateId" "bandwagon-album" -}}
+{{- $streams := $streams.Featured.Slice.Shuffle -}}
+
+<div class="page" hx-get="/{{.StreamID}}" hx-trigger="refreshPage from:window" hx-target="this" hx-swap="outerHTML">
+
+	<div class="margin-bottom">
+		{{.Data "content" | markdown }}
+	</div>
+
+	<div class="columns-4">
+		{{- range $index, $stream := $streams -}}
+			<div class="card flex-column hover-trigger" script="install blockselect()" role="link">
+				<img src="{{$stream.IconURL}}" class="square width-100% block" style="object-fit:cover;" aria-hidden="true">
+				<div class="padding padding text-plain">
+					<a hx-get="/{{$stream.StreamID}}" href="/{{$stream.StreamID}}" class="turboclick">{{$stream.Label}}</a><br>
+					<div class="text-sm text-gray">{{$stream.AttributedTo.Name}}</div>	
+				</div>
+			</div>
+		{{- end -}}
+	</div>
+
+	{{- if .UserCan "edit" -}}
+		<div class="pos-absolute-top-right text-sm">
+			<button hx-get="/{{.StreamID}}/edit">Edit</button>
+			<button hx-get="/{{.StreamID}}/sharing">Sharing</button>
+		</div>
+	{{- end -}}
+</div>

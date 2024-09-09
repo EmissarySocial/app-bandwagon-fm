@@ -1,0 +1,33 @@
+{{- $users := .Users.Indexable.Slice -}}
+{{- $users := $users.Shuffle.FirstN 20 -}}
+
+<div class="page" hx-get="/{{.StreamID}}" hx-trigger="refreshPage from:window" hx-target="this" hx-swap="outerHTML">
+
+	<div class="margin-bottom">
+		{{.Data "content" | markdown }}
+	</div>
+
+	<div class="columns-4">
+		{{- range $index, $user := $users -}}
+			<div class="padding align-center turboclick" role="link" hx-get="/@{{$user.UserID.Hex}}">
+
+				{{- if eq "" $user.IconURL -}}
+					<div class="circle-128 margin-horizontal-auto"></div>
+				{{- else -}}
+					<img src="{{$user.IconURL}}" class="block circle-128 margin-horizontal-auto">
+				{{- end -}}
+				<div class="text-center margin-top">
+					<div class="bold">{{$user.DisplayName}}</div>
+					<div class="text-gray text-sm" style="height:4.5em; overflow-y:hidden; text-overflow:ellipsis;">{{$user.StatusMessage}}</div>
+				</div>
+			</div>
+		{{- end -}}
+	</div>
+
+	{{- if .UserCan "edit" -}}
+		<div class="pos-absolute-top-right text-sm">
+			<button hx-get="/{{.StreamID}}/edit">Edit</button>
+			<button hx-get="/{{.StreamID}}/sharing">Sharing</button>
+		</div>
+	{{- end -}}
+</div>
