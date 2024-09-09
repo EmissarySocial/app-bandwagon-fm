@@ -9,6 +9,7 @@
 	schema: {
 		type: object
 		properties: {
+			token: {type: "string", required:true}
 			label: {type: "string", required:true}
 			summary: {type: "string"}
 			data: {type:"object", properties: {
@@ -32,6 +33,7 @@
 								type:"layout-vertical",
 								label:"Page Info",
 								children: [
+									{type:"text", label:"Token", path:"token"}
 									{type:"text", label:"Page Name", path:"label"}
 									{type:"textarea", label:"Description", path:"summary"}
 								]
@@ -70,6 +72,7 @@
 									type:"layout-vertical",
 									label:"Page Info",
 									children: [
+										{type:"text", label:"Token", path:"token"}
 										{type:"text", label:"Page Name", path:"label"}
 										{type:"textarea", label:"Description", path:"summary"}
 									]
