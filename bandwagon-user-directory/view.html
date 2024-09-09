@@ -14,7 +14,7 @@
 				{{- if eq "" $user.IconURL -}}
 					<div class="circle-128 margin-horizontal-auto"></div>
 				{{- else -}}
-					<img src="{{$user.IconURL}}" class="block circle-128 margin-horizontal-auto">
+					<img src="{{$user.IconURL}}" class="block circle-128 margin-horizontal-auto" loading="lazy">
 				{{- end -}}
 				<div class="text-center margin-top">
 					<div class="bold">{{$user.DisplayName}}</div>

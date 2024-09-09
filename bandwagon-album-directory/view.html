@@ -10,7 +10,7 @@
 	<div class="columns-4">
 		{{- range $index, $stream := $streams -}}
 			<div class="card flex-column hover-trigger" script="install blockselect()" role="link">
-				<img src="{{$stream.IconURL}}" class="square width-100% block" style="object-fit:cover;" aria-hidden="true">
+				<img src="{{$stream.IconURL}}" class="square width-100% block" style="object-fit:cover;" aria-hidden="true" loading="lazy">
 				<div class="padding padding text-plain">
 					<a hx-get="/{{$stream.StreamID}}" href="/{{$stream.StreamID}}" class="turboclick">{{$stream.Label}}</a><br>
 					<div class="text-sm text-gray">{{$stream.AttributedTo.Name}}</div>	
