@@ -16,9 +16,9 @@
 				{{- else -}}
 					<img src="{{$user.IconURL}}" class="block circle-128 margin-horizontal-auto" loading="lazy">
 				{{- end -}}
-				<div class="text-center margin-top">
-					<div class="bold">{{$user.DisplayName}}</div>
-					<div class="text-gray text-sm" style="height:4.5em; overflow-y:hidden; text-overflow:ellipsis;">
+				<div class="text-center margin-top" style="max-width:100%;">
+					<div class="bold ellipsis">{{$user.DisplayName}}</div>
+					<div class="text-gray text-sm ellipsis-block" style="height:4.5em;">
 						{{if eq "" $user.StatusMessage -}}
 							@{{$user.Username}}
 						{{- else -}}
