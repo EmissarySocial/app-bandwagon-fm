@@ -30,8 +30,7 @@
 			roles:["owner"]
 			steps: [
 				{do:"set-data", values:{token:"home", label:"Home"}}
-				{do: "save"}
-				{do: "publish"}
+				{do: "save-and-publish"}
 				{do: "forward-to", url: "/{{.StreamID}}/view"}
 			]
 		}
@@ -54,8 +53,7 @@
 						}
 					}
 				]}
-				{do: "save"}
-				{do: "publish"}
+				{do: "save-and-publish"}
 				{do: "refresh-page"}
 			]
 		}

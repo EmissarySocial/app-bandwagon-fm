@@ -48,8 +48,7 @@
 						]
 					}
 				}
-				{do: "publish"}
-				{do: "save"}
+				{do: "save-and-publish"}
 			]
 		}
 		view: {
@@ -88,8 +87,7 @@
 						}
 					}
 				]}
-				{do: "save"}
-				{do: "publish"}
+				{do: "save-and-publish"}
 				{do: "refresh-page"}
 			]
 		}
