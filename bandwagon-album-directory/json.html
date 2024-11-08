@@ -2,7 +2,7 @@
 {{- $token := .Token -}}
 {{- $syndication := .QueryParam "syndication" -}}
 
-{{- $streams := .Streams.Top6.ByPublishDate.Reverse -}}
+{{- $streams := .Streams.Top600.ByPublishDate.Reverse -}}
 {{- $streams := $streams.Where "templateId" "bandwagon-album" -}}
 {{- $streams := $streams.Where "syndication.values" $syndication -}}
 {{- $streams := $streams.Slice -}}
