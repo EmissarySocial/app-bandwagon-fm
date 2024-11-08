@@ -56,6 +56,11 @@
 				{do: "view-html"}
 			]
 		}
+		json:{
+			steps:[
+				{do: "view-html", as-full-page:true}
+			]
+		}
 		edit: {
 			roles: ["owner"]
 			steps: [

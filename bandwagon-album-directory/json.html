@@ -1,0 +1,27 @@
+{{- $host := .Host -}}
+{{- $token := .Token -}}
+{{- $syndication := .QueryParam "syndication" -}}
+
+{{- $streams := .Streams.Top6.ByPublishDate.Reverse -}}
+{{- $streams := $streams.Where "templateId" "bandwagon-album" -}}
+{{- $streams := $streams.Where "syndication.values" $syndication -}}
+{{- $streams := $streams.Slice -}}
+
+{
+	"syndication": "{{$syndication}}",
+	"orderedItems": [
+		{{- range $index, $stream := $streams -}}
+			{{- if gt $index 0 -}}
+			,
+			{{- end -}}
+			{
+				"url": "{{$host}}/{{$stream.StreamID}}",
+				"export": "{{$host}}/{{$stream.StreamID}}/zip9348103752",
+				"name": "{{$stream.Label}}",
+				"icon": "{{$stream.IconURL}}",
+				"artist": "{{$stream.AttributedTo.ProfileURL}}",
+				"publishDate": {{$stream.PublishDate}}
+			}
+		{{- end -}}
+	]
+}
