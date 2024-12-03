@@ -17,9 +17,9 @@
 			{
 				"url": "{{$host}}/{{$stream.StreamID}}",
 				"export": "{{$host}}/{{$stream.StreamID}}/zip9348103752",
-				"name": "{{$stream.Label}}",
-				"icon": "{{$stream.IconURL}}",
-				"artist": "{{$stream.AttributedTo.ProfileURL}}",
+				"name": {{$stream.Label | json}},
+				"icon": {{$stream.IconURL | json}},
+				"artist": {{$stream.AttributedTo.ProfileURL | json}},
 				"publishDate": {{$stream.PublishDate}}
 			}
 		{{- end -}}
