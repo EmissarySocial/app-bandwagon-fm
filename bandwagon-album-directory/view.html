@@ -1,4 +1,4 @@
-{{- $streams := .Streams.Top120.Where "templateId" "bandwagon-album" -}}
+{{- $streams := .Streams.Top600.Where "templateId" "bandwagon-album" -}}
 {{- $streams := $streams.Slice.Shuffle -}}
 
 <div class="page" hx-get="/{{.StreamID}}" hx-trigger="refreshPage from:window" hx-target="this" hx-swap="outerHTML">
