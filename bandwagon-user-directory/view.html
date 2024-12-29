@@ -1,4 +1,4 @@
-{{- $users := .Users.Indexable.Slice -}}
+{{- $users := .Users.Top300.Indexable.Slice -}}
 {{- $users := $users.Shuffle -}}
 
 <div class="page" hx-get="/{{.StreamID}}" hx-trigger="refreshPage from:window" hx-target="this" hx-swap="outerHTML">
