@@ -49,10 +49,12 @@
 		<div style="background-color:gray;" class="pos-absolute-four-corners" hx-get="/.unsplash/collections/{{$collection}}/random" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false"></div>
 	{{- end -}}
 
-	<div class="flex-grow margin-vertical-lg pos-relative">
-		<h1 class="margin-bottom-xs">{{.Data "heroText"}}</h1>
-		<h2 class="margin-vertical-xs">{{.Data "heroSubtext"}}</h2>
+	<div class="pos-relative padding-xl" style="background-image:linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0))">
+		<h1 class="padding-top margin-bottom-xs">{{.Data "heroText"}}</h1>
+		<h2 class="margin-top-xs margin-bottom-xl">{{.Data "heroSubtext"}}</h2>
 	</div>
+
+	<div class="flex-grow"></div>
 
 	<div class="align-center margin-vertical-lg pos-relative">
 		<button hx-on:click="smoothSelect('#learn')" class="text-xl">Learn More</button>
