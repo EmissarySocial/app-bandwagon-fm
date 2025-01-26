@@ -1,9 +1,9 @@
 <div class="page h-item" hx-get="/{{.StreamID}}" hx-trigger="refreshPage from:window" hx-target="this" hx-swap="outerHTML" hx-push-url="true">
 
 	<!-- Alternate links for service discovery -->
-	<link rel="alternate" type="application/rss+xml" href="/{{.StreamID}}/rss"/>
-	<link rel="alternate" type="application/atom+xml" href="/{{.StreamID}}/atom"/>
-	<link rel="alternate" type="application/feed+json" href="/{{.StreamID}}/json"/>
+	<link rel="alternate" type="application/rss+xml" href="/{{.StreamID}}/feed"/>
+	<link rel="alternate" type="application/atom+xml" href="/{{.StreamID}}/feed"/>
+	<link rel="alternate" type="application/feed+json" href="/{{.StreamID}}/feed"/>
 	<link rel="hub" href="/{{.StreamID}}/websub"/>
 
 	{{- if .UserCan "edit" -}}
