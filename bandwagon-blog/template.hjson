@@ -103,7 +103,7 @@
 				]}
 			]
 		}
-		feed: {roles: ["viewer"], do:"view-feed"}
+		feed: {do:"view-feed"}
 		websub: {roles: ["viewer"], do:"websub"}
 	}
 }
