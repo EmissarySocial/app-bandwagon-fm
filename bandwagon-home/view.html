@@ -1,3 +1,6 @@
+{{- $newReleases := .Search.Top6.ByCreateDate.Reverse.WhereType "Album" -}}
+{{- $newReleases := $newReleases.Slice -}}
+
 {{- $collection := .Data "collection" -}}
 
 <style>
@@ -38,8 +41,6 @@
 			padding:0px 1em;
 			line-height:1.1em;
 		}
-
-
 	}
 
 </style>
@@ -68,24 +69,79 @@
 	<div class="margin-horizontal-auto" style="max-width:640px">
 
 		<div class="margin-bottom-xl">
-			<h1 class="align-center">Join an open community for musicians and bands.</h1>
-			<h2>Fediverse, Mastodon, and Beyond</h2>
-			<p>Every post is accessible to the millions on people on the Fediverse -- using servers like Mastodon, Misskey, and others -- where they can boost and share your music to their communities. Fans not on the Fediverse? No problem. They can subscribe to your news feed via email, too.</p>
-			<h2>Gorgeous Album Pages</h2>
-			<p>Go viral with custom designed album pages that showcase your music, with album art, liner notes, and more.</p>
-			<h2>Audio Streaming</h2>
-			<p>Upload audio files and your fans can play songs directly from your album pages. Or, link to your music on popular streaming services like Spotify, Soundcloud, and more.</p>
-			<h2>Tour Dates and Tickets</h2>
-			<p>Promote your event calendar and tour dates now live on the Fediverse, so your fans will always know how to see you in person, and can tell their online community to show up at the box office, too.</p>
-			<h2>And More...</h2>
-			<p>Music discovery? Online sales? Analytics? There&#39;s a lot more in store as the community grows. This is a 100% open source effort, so you could even roll your own, if you want. Your insights make a difference in what we make and how we build, so speak up about what works and what doesn&#39;t, and we&#39;ll make it happen together.</p>
-			<p>What do you say?  Get ready to <b>jump on the bandwagon.</b></p>
-			<div class="card margin-vertical-xl padding-lg flex-center" script="install blockselect()">
-				<a href="/register" class="button primary">Join Bandwagon Now &rarr;</a>
+			<h1 class="extra-bold gray80 margin-vertical-sm">What's New on Bandwagon.fm</h1>
+			<div class="text-lg text-gray margin-bottom-lg">
+				New music released on the Fediverse every day...
+			</div>
+
+			<div class="flex-row flex-wrap" style="gap:24px;">
+				{{- range $newReleases -}}
+					<div class="width-30% flex-grow" script="install blockselect()">
+						<div class="rounded square margin-bottom-xs" style="background-color:var(--gray20);">
+							{{- if ne "" .IconURL -}}
+								<img src="{{.IconURL}}" class="block rounded square width-100%">
+							{{- end -}}
+						</div>
+						<div class="padding-bottom">
+							<div class="ellipsis"><a href="{{.URL}}" class="gray80 bold">{{.Name}}</a></div>
+							<div class="ellipsis text-sm text-gray">{{.AttributedTo}}</div>
+						</div>
+					</div>
+				{{- end -}}
 			</div>
 		</div>
 
 		<div class="margin-bottom-xl">
+			<div class="padding-xl rounded" style="background-color:var(--gray80);">
+				<h1 class="align-center gray10" style="line-height:150%">
+					Ready to Join the 
+					<span class="nowrap">Open Community</span> for 
+					<span class="nowrap">Musicians and Bands?</span>
+				</h1>
+			</div>
+
+			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">A Better Alternative for Musicians</h2>
+			<div class="text-lg text-gray margin-bottom-lg">Bandwagon is 100% open source, so nobody can lock you in to their platform. Start here, then you'll be able to <b>migrate your account</b> or <b>self-host</b> your Bandwagon data anywhere.</div>
+
+			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Connect on the New Social Web</h2>
+			<div class="text-lg text-gray margin-bottom-lg">Every post is accessible to the millions on people on the Fediverse -- using servers like <a href="https://joinmastodon.org" target="_blank">Mastodon</a>, <a href="https://loops.video" target="_blank">Loops</a>, and others -- where they can boost and share your music to their communities.</div>
+
+			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Gorgeous Album Pages</h2>
+			<div class="text-lg text-gray margin-bottom-lg">Go viral with custom designed album pages that showcase your music, with <b>streaming audio</b>, album art, liner notes, and more.</div>
+
+			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Publish Direct to Streaming Radio</h2>
+			<div class="text-lg text-gray margin-bottom-lg">Opt-In to easy music distribution on <a href="https://theindiebeat.fm" target="_blank">TheIndieBeat.fm</a>, the new music streaming service for the Fediverse</div>
+
+			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Tour Dates and Event Tickets</h2>
+			<div class="text-lg text-gray margin-bottom-lg">Promote your events and tour dates here on Bandwagon.fm and all across the Fediverse, so your fans will always know how to see you in person, and can tell their online community to show up at the box office, too.</div>
+			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Coming Soon...</h2>
+
+			<div class="text-lg text-gray margin-bottom-lg">We're deep into building the <a href="/roadmap">Bandwagon Roadmap</a>, including even better <b>music discovery</b> and <b>publishing tools</b>
+				And <b>online album sales</b> are close behind. 
+				There&#39;s a lot more in store as the community grows.
+				This is a 100% open source effort, so your insights make a difference in what we 
+				create.  So <a href="https://github.com/EmissarySocial/bandwagon/issues">#BE_LOUD</a> about what works and what doesn&#39;t, and we&#39;ll make it happen together.
+			</div>
+			<div class="text-lg text-gray margin-bottom-lg">What do you say?  Get ready to <b>jump on the bandwagon.</b></div>
+		</div>
+
+	</div>
+
+	<div class="pos-relative rounded margin-vertical-xl flex-center" script="install blockselect()" style="background-color:var(--gray90); padding:128px;">
+		{{- if ne "" $collection -}}
+			<div class="pos-absolute-four-corners rounded" hx-get="/.unsplash/collections/{{$collection}}/random?v=2" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false" style="opacity:0.2"></div>
+		{{- end -}}
+		<a href="/register" class="button primary rounded align-center">
+			<div class="text-xl margin-none bold">Start Here for Free &rarr;</div>
+			<div class="text-sm text-gray">Migrate or Self-host later...</div>
+		</a>
+	</div>
+
+	<div class="margin-horizontal-auto flex-row text-gray" style="max-width:640px">
+		<div class="width-256 margin-right">
+			<img src="https://emissary.dev/.templates/emissary_dev_homepage/resources/Emissary-Logo-Black.png" class="width-100%">
+		</div>
+		<div class="margin-bottom-xl text-lg">
 			<h2>Powered by Emissary</h2>
 			<a href="https://emissary.dev" target="_blank">Emissary is the Social Web Toolkit</a> that powers this website and many more.
 			It's easy to <a href="https://emissary.dev/admins" target="_blank">host your own Emissary server</a> to run this, or many other custom apps on it.
@@ -93,7 +149,6 @@
 			Wanna build your own Emissary app? <a href="https://emissary.dev/creators" target="_blank">It's easy to get started.</a>
 			</p>
 		</div>
-
 	</div>
 
 	<div class="pos-absolute-top-right text-xs">
