@@ -7,7 +7,7 @@
 		{{.Data "content" | markdown }}
 	</div>
 
-	<div class="columns-4">
+	<div class="cols-4">
 		{{- range $index, $stream := $streams -}}
 			{{- if $stream.IsPublished -}}
 			<div class="card flex-column hover-trigger" script="install blockselect()" role="link">

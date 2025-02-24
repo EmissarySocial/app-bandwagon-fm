@@ -9,6 +9,7 @@
 	schema: {
 		type: object
 		properties: {
+			icon:{type:"string"}
 			token: {type: "string", required: true}
 			label: {type: "string", required: true}
 			summary: {type: "string", format:"html"}
@@ -46,6 +47,7 @@
 							label: Edit Home Page
 							type: layout-vertical
 							children: [
+								{type:"text", label:"Icon", path:"icon"}
 								{type:"text", label:"Hero Text", path:"data.heroText"}
 								{type:"text", label:"Second Text", path:"data.heroSubtext"}
 								{type:"text", label:"Unsplash Collection ID", path:"data.collection"}

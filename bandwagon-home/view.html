@@ -3,6 +3,13 @@
 
 {{- $collection := .Data "collection" -}}
 
+<!-- OpenGraph metadata: https://ogp.me/ -->
+<meta name="og:title" content="Bandwagon.fm" />
+<meta name="og:type" content="website"/>
+<meta name="og:description" content="{{.Data `heroText`}}" />
+<meta name="og:image" content="{{.Host}}/.unsplash/collections/{{$collection}}/random?forward=true" />
+<meta name="og:url" content="https://bandwagon.fm" />
+
 <style>
 	main {flex-direction:column;}
 	.hero {
@@ -29,7 +36,7 @@
 		margin: 48px auto;
 	}
 
-	@media screen and (max-width: 568px) {
+	@media screen and (max-width: 640px) {
 		.hero h1 {
 			font-size:3em;
 			padding:0px 1em;
@@ -45,7 +52,7 @@
 
 </style>
 
-<div class="hero md:aspect-16-9 flex-column">
+<div class="hero md:aspect-16-9 flex-column container">
 	{{- if ne "" $collection -}}
 		<div style="background-color:gray;" class="pos-absolute-four-corners" hx-get="/.unsplash/collections/{{$collection}}/random" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false"></div>
 	{{- end -}}
@@ -69,7 +76,7 @@
 	<div class="margin-horizontal-auto" style="max-width:640px">
 
 		<div class="margin-bottom-xl">
-			<h1 class="extra-bold gray80 margin-vertical-sm">What's New on Bandwagon.fm</h1>
+			<h1 class="extra-bold gray80 margin-vertical-sm">New on Bandwagon.fm</h1>
 			<div class="text-lg text-gray margin-bottom-lg">
 				New music released on the Fediverse every day...
 			</div>
@@ -100,7 +107,7 @@
 				</h1>
 			</div>
 
-			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">A Better Alternative for Musicians</h2>
+			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Better for Musicians</h2>
 			<div class="text-lg text-gray margin-bottom-lg">Bandwagon is 100% open source, so nobody can lock you in to their platform. Start here, then you'll be able to <b>migrate your account</b> or <b>self-host</b> your Bandwagon data anywhere.</div>
 
 			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Connect on the New Social Web</h2>
@@ -109,7 +116,7 @@
 			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Gorgeous Album Pages</h2>
 			<div class="text-lg text-gray margin-bottom-lg">Go viral with custom designed album pages that showcase your music, with <b>streaming audio</b>, album art, liner notes, and more.</div>
 
-			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Publish Direct to Streaming Radio</h2>
+			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Direct Publishing</h2>
 			<div class="text-lg text-gray margin-bottom-lg">Opt-In to easy music distribution on <a href="https://theindiebeat.fm" target="_blank">TheIndieBeat.fm</a>, the new music streaming service for the Fediverse</div>
 
 			<h2 class="text-3xl extra-bold gray80" style="margin-top:36px;">Tour Dates and Event Tickets</h2>
@@ -120,7 +127,7 @@
 				And <b>online album sales</b> are close behind. 
 				There&#39;s a lot more in store as the community grows.
 				This is a 100% open source effort, so your insights make a difference in what we 
-				create.  So <a href="https://github.com/EmissarySocial/bandwagon/issues">#BE_LOUD</a> about what works and what doesn&#39;t, and we&#39;ll make it happen together.
+				create.  So <a href="https://github.com/EmissarySocial/bandwagon/issues">#BELOUD</a> about what works and what doesn&#39;t, and we&#39;ll make it happen together.
 			</div>
 			<div class="text-lg text-gray margin-bottom-lg">What do you say?  Get ready to <b>jump on the bandwagon.</b></div>
 		</div>
