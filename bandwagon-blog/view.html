@@ -34,28 +34,31 @@
 		<div class="margin-bottom b-summary">{{.Summary}}</div>
 	{{- end -}}
 
-		<div class="table" script="install sortContainer">
+	<div class="table" script="install sortContainer">
 
-			{{- range .Children.ByPublishDate.Reverse.Slice -}}
-				<article class="h-entry">
-					<div class="draggable clickable" hx-get="/{{.Token}}" href="/{{.Token}}">
-						<input type="hidden" name="keys" value="{{.StreamID}}"/>
-						<div class="flex-row">
-							{{- if ne .IconURL "" -}}
-								<picture loading="lazy" class="picture aspect-4-3">
-									<source type="image/webp" srcset="/{{.StreamID}}/attachments/{{.IconURL}}.webp?width=400&height=300"/>
-									<img class="u-photo" src="/{{.StreamID}}/attachments/{{.IconURL}}.jpg?width=400&height=300"/>
-								</picture>
-							{{- end -}}
+		{{- range .Children.ByPublishDate.Reverse.Slice -}}
+			<article class="h-entry">
+				<div class="draggable clickable" script="install blockselect()">
+					<input type="hidden" name="keys" value="{{.StreamID}}"/>
+					<div class="flex-row">
+						{{- if ne .IconURL "" -}}
+							<picture loading="lazy" class="picture aspect-4-3">
+								<source type="image/webp" srcset="/{{.StreamID}}/attachments/{{.IconURL}}.webp?width=400&height=300"/>
+								<img class="u-photo" src="/{{.StreamID}}/attachments/{{.IconURL}}.jpg?width=400&height=300"/>
+							</picture>
+						{{- end -}}
 						<div class="flex-grow">
-							<h2 class="link p-name margin-bottom-none">{{.Label}}</h2>
+							<h2 class="link p-name margin-bottom-none">
+								<a href="/{{.Token}}" hx-get="/{{.Token}}">{{.Label}}</a>
+							</h2>
 							<p class="p-summary">{{.Summary}}</p>
 						</div>
 					</div>
-				</article>
-			{{- end -}}
+				</div>
+			</article>
+		{{- end -}}
 
-		</div>
+	</div>
 
 </div>
 
