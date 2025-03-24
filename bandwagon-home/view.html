@@ -83,17 +83,17 @@
 
 			<div class="flex-row flex-wrap" style="gap:24px;">
 				{{- range $newReleases -}}
-					<div class="width-30% flex-grow" script="install blockselect()">
+					<a href="{{.URL}}" class="block text-plain width-30% flex-grow">
 						<div class="rounded square margin-bottom-xs" style="background-color:var(--gray20);">
 							{{- if ne "" .IconURL -}}
 								<img src="{{.IconURL}}" class="block rounded square width-100%">
 							{{- end -}}
 						</div>
 						<div class="padding-bottom">
-							<div class="ellipsis"><a href="{{.URL}}" class="gray80 bold">{{.Name}}</a></div>
+							<div class="ellipsis gray80 bold">{{.Name}}</div>
 							<div class="ellipsis text-sm text-gray">{{.AttributedTo}}</div>
 						</div>
-					</div>
+					</a>
 				{{- end -}}
 			</div>
 		</div>
