@@ -134,15 +134,15 @@
 
 	</div>
 
-	<div class="pos-relative rounded margin-vertical-xl flex-center" script="install blockselect()" style="background-color:var(--gray90); padding:128px;">
+	<a href="/register" class="block text-plain pos-relative rounded margin-vertical-xl flex-center" style="background-color:var(--gray90); padding:128px;">
 		{{- if ne "" $collection -}}
 			<div class="pos-absolute-four-corners rounded" hx-get="/.unsplash/collections/{{$collection}}/random?v=2" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false" style="opacity:0.2"></div>
 		{{- end -}}
-		<a href="/register" class="button primary rounded align-center">
+		<span class="button primary rounded align-center">
 			<div class="text-xl margin-none bold">Start Here for Free &rarr;</div>
 			<div class="text-sm text-gray">Migrate or Self-host later...</div>
-		</a>
-	</div>
+		</span>
+	</a>
 
 	<div class="margin-horizontal-auto flex-row text-gray" style="max-width:640px">
 		<div class="width-256 margin-right">

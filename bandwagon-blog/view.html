@@ -38,7 +38,7 @@
 
 		{{- range .Children.ByPublishDate.Reverse.Slice -}}
 			<article class="h-entry">
-				<div class="draggable clickable" script="install blockselect()">
+				<a href="/{{.Token}}" hx-get="/{{.Token}}" class="block text-plain text-black draggable clickable">
 					<input type="hidden" name="keys" value="{{.StreamID}}"/>
 					<div class="flex-row">
 						{{- if ne .IconURL "" -}}
@@ -48,13 +48,11 @@
 							</picture>
 						{{- end -}}
 						<div class="flex-grow">
-							<h2 class="link p-name margin-bottom-none">
-								<a href="/{{.Token}}" hx-get="/{{.Token}}">{{.Label}}</a>
-							</h2>
+							<h2 class="link p-name margin-bottom-none">{{.Label}}</h2>
 							<p class="p-summary">{{.Summary}}</p>
 						</div>
 					</div>
-				</div>
+				</a>
 			</article>
 		{{- end -}}
 
