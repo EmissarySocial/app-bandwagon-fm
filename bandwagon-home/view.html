@@ -54,7 +54,7 @@
 
 <div class="hero md:aspect-16-9 flex-column container">
 	{{- if ne "" $collection -}}
-		<div style="background-color:gray;" class="pos-absolute-four-corners" hx-get="/.unsplash/collections/{{$collection}}/random" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false"></div>
+		<div hx-get="/.unsplash/collections/{{$collection}}/random" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false" class="pos-absolute-four-corners" style="background-color:gray;"></div>
 	{{- end -}}
 
 	<div class="pos-relative padding-vertical" style="background-image:linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0))">
@@ -136,7 +136,7 @@
 
 	<a href="/register" class="block text-plain pos-relative rounded margin-vertical-xl flex-center" style="background-color:var(--gray90); padding:128px;">
 		{{- if ne "" $collection -}}
-			<div class="pos-absolute-four-corners rounded" hx-get="/.unsplash/collections/{{$collection}}/random?v=2" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false" style="opacity:0.2"></div>
+			<div hx-get="/.unsplash/collections/{{$collection}}/random?v=2" hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-push-url="false" class="pos-absolute-four-corners rounded" style="opacity:0.2"></div>
 		{{- end -}}
 		<span class="button primary rounded align-center">
 			<div class="text-xl margin-none bold">Start Here for Free &rarr;</div>

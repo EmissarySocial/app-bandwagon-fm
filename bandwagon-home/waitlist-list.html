@@ -6,7 +6,7 @@
 
     <tbody hx-get="/{{.StreamID}}/waitlist-list?createDate=GT:{{$last.CreateDate}}" hx-trigger="revealed" hx-target="this" hx-swap="afterend" hx-push-url="false">
         {{- range $index, $item := $waitlist -}}
-            <tr role="button" hx-get="/{{.StreamID}}/edit">
+            <tr hx-get="/{{.StreamID}}/edit" role="button">
                 <td>{{add $index 1}}. {{$item.Label}}
                 <td>{{$item.Data.contact}}</td>
                 <td>{{$item.Data.email}}</td>
