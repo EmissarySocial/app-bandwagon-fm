@@ -162,9 +162,6 @@
 		{{- if .UserCan "edit" -}}
 			<button hx-get="/{{.StreamID}}/edit">Edit Page</button>
 		{{- end -}}
-		{{- if .UserCan "waitlist" -}}
-			<button hx-get="/{{.StreamID}}/waitlist">Waitlist</button>
-		{{- end -}}
 	</div>
 
 </div>

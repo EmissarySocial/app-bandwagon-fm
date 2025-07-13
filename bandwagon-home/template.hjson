@@ -23,8 +23,19 @@
 			}
 		}
 	}
-	bundles: {
+
+	states: {
+		default: {
+			label: Default
+			description: This item is not visible to anyone except the author and editors
+		}
+		published: {
+			label: Published
+			description: This item is visible to all Viewers
+		}
 	}
+
+	bundles: {}
 
 	actions: {
 		create: {
@@ -35,7 +46,14 @@
 				{do: "forward-to", url: "/{{.StreamID}}/view"}
 			]
 		}
-		view: {do: "view-html"}
+		
+		view: {
+			roles:["anonymous"]
+			steps: [
+				{do: "view-html"}
+			]
+		}
+
 		edit: {
 			roles: ["author"]
 			steps: [
@@ -55,7 +73,7 @@
 						}
 					}
 				]}
-				{do: "save-and-publish"}
+				{do: "save-and-publish", state:"published"}
 				{do: "refresh-page"}
 			]
 		}
@@ -80,19 +98,7 @@
 		}
 
 		confirm: {
-			roles: ["any"]
-			steps: [
-				{do: "view-html"}
-			]
-		}
-		waitlist: {
-			roles: ["owner"]
-			steps: [
-				{do: "view-html"}
-			]
-		}
-		waitlist-list: {
-			roles: ["owner"]
+			roles: ["anonymous"]
 			steps: [
 				{do: "view-html"}
 			]
