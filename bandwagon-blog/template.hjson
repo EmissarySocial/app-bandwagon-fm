@@ -1,11 +1,13 @@
 {
 	templateId: bandwagon-blog
+	category: Bandwagon
 	templateRole: folder
 	model: Stream
 	containedBy: ["top"]
-	label: Bandwagon.fm Blog
+	label: Bandwagon.fm: Blog Folder
 	description: Blog Template for Bandwagon.fm
 	icon: folder
+	sort:200
 	childSortType: label
 	childSortOrder: ASC
 	schema: {

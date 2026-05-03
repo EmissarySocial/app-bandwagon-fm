@@ -1,11 +1,13 @@
 {
 	templateId: bandwagon-home
+	category: Bandwagon
 	templateRole: homepage
 	model: Stream
 	containedBy: ["top"]
 	icon: home
-	label: Home Page for Bandwagon.fm
+	label: Bandwagon.fm: Home Page
 	description: Custom Home Page for Bandwagon.fm
+	sort:100
 	schema: {
 		type: object
 		properties: {
