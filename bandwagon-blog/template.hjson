@@ -120,12 +120,5 @@
 				{do:"view-feed"}
 			]
 		}
-		
-		websub: {
-			roles: ["anonymous"] 
-			steps:[
-				{do:"websub"}
-			]
-		}
 	}
 }
