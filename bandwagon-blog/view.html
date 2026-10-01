@@ -67,7 +67,12 @@
 	</div>
 
 	{{- if .UserCan "sort" -}}
-		<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+		<!-- onload drives the sortContainer behavior above: htmx loads external scripts in swapped
+		     content ASYNCHRONOUSLY, so the behavior installs before Sortable exists.  Without this
+		     event the list silently stops being draggable whenever the swap wins the race. -->
+		<script
+			src="/.themes/global/resources/sortable-1.15.7/Sortable.min.js"
+			onload="window.dispatchEvent(new Event('sortableReady'))"></script>
 
 		<form
 			hx-post="/{{.StreamID}}/sort" 
